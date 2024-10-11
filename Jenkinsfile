@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        DOCKER_IMAGE = 'appseed/flask-dr-dashboard'
+        DOCKER_IMAGE = 'appseed/flask-dashboard'
     }
 
     stages {
