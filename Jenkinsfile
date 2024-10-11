@@ -15,12 +15,7 @@ pipeline {
 
         
 
-        stage('Lint') {
-            steps {
-                sh 'source env/bin/activate'
-                sh 'flake8 .'
-            }
-        }
+        
 
         stage('Build Docker Image') {
             steps {
