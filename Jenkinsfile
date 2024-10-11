@@ -8,8 +8,8 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'python -m  env'
-                sh 'source env/bin/activate'
+                sh 'docker build -t my-flask-app .'
+                sh 'docker tag my-flask-app ${DOCKER_USERNAME}/${DOCKER_IMAGE}'
                 sh 'pip install -r requirements.txt'
             }
         }
