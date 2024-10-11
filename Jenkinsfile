@@ -22,9 +22,9 @@ pipeline {
             }
         }
 
-        stage('Deploy') {
+        stage('Deploy to Docker') {
             steps {
-                sh 'docker-compose up -d *'
+                sh "docker run -p 5000:5000 ${DOCKER_REGISTRY}/${DOCKER_IMAGE}"
             }
         }
     }
