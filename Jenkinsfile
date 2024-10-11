@@ -24,7 +24,7 @@ pipeline {
 
         stage('Deploy') {
             steps {
-                sh 'docker-compose up -d appseed_app'
+                sh 'docker-compose up -d docker-compose.yml'
             }
         }
     }
