@@ -6,7 +6,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'docker build -t argon-dashboard-flask .'
+                sh 'docker build --no-cache -t argon-dashboard-flask .'
                 sh 'docker tag argon-dashboard-flask ${DOCKER_USERNAME}/${DOCKER_IMAGE}'
             }
         }
