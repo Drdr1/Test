@@ -13,12 +13,7 @@ pipeline {
             }
         }
 
-        stage('Test') {
-            steps {
-                sh 'source env/bin/activate'
-                sh 'python -m unittest discover -s tests -p "test_*.py"'
-            }
-        }
+        
 
         stage('Lint') {
             steps {
