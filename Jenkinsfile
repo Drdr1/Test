@@ -1,6 +1,12 @@
 pipeline {
     agent any
 
+    environment {
+        // Set environment variables
+        PYTHONDONTWRITEBYTECODE = '1'
+        PYTHONUNBUFFERED = '1'
+    }
+
     
 
     stages {
