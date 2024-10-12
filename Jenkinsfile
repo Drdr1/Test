@@ -29,11 +29,7 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                // Deploy the Docker container using the Jenkins Docker plugin
-                dockerComposeUp(
-                    composeFile: 'docker-compose.yml',
-                    serviceName: 'appseed-app',
-                    containerName: 'appseed_app'
+                sh 'docker-compose -f docker-compose.yml up -d appseed-app'
                 )
             }
         }
