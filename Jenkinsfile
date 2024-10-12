@@ -22,11 +22,7 @@ pipeline {
             }
         }
 
-        stage('Deploy to Docker') {
-            steps {
-                sh "docker run -p 5000:5005 ${DOCKER_USERNAME}/${DOCKER_IMAGE}"
-            }
-        }
+        
     }
 
     post {
