@@ -7,7 +7,8 @@ ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 
 # install python dependencies
-RUN pip install --upgrade pip
+# RUN pip install --upgrade pip
+RUN python -m pip install --upgrade pip
 RUN pip install --no-cache-dir -r requirements.txt
 
 # gunicorn
