@@ -8,7 +8,7 @@ ENV PYTHONDONTWRITEBYTECODE=1
 ENV PYTHONUNBUFFERED=1
 
 # install python dependencies
-RUN python -m pip install --upgrade pip
+RUN python -m pip install --upgrade pip || echo "pip upgrade failed" && exit 1
 RUN pip install --no-cache-dir -r requirements.txt
 
 # COPY the rest of the files
