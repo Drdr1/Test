@@ -1,14 +1,18 @@
 FROM python:3.9
 
-COPY . .
-
-# set environment variables
+# Set environment variables
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 
-# install python dependencies
-RUN pip install --upgrade pip
-RUN pip install --no-cache-dir -r requirements.txt
+# Copy only necessary files
+COPY requirements.txt .
+COPY gunicorn-cfg.py .
+
+# Install Python dependencies with caching
+RUN pip install --no-cache-dir -r requirements.txt --cache-dir /tmp/pip-cache
+
+# Copy the rest of the files
+COPY . .
 
 # gunicorn
 CMD ["gunicorn", "--config", "gunicorn-cfg.py", "run:app"]
